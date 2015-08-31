@@ -1,0 +1,17 @@
+description "Kafka High-level API"
+
+respawn
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+script
+    BIN_DIR=/usr/sbin
+    SYSCONF_DIR=/etc
+
+    [ ! -s /etc/default/khp ] || . /etc/default/khp
+
+    ulimit -n 655350
+
+    exec "$BIN_DIR/kafka-http-apir" -config="$SYSCONF_DIR/kafka-http-api.cfg"
+end script
