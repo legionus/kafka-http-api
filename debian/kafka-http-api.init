@@ -13,5 +13,5 @@ script
 
     ulimit -n 655350
 
-    exec "$BIN_DIR/kafka-http-apir" -config="$SYSCONF_DIR/kafka-http-api.cfg"
+    exec "$BIN_DIR/kafka-http-api" -config="$SYSCONF_DIR/kafka-http-api.cfg"
 end script
