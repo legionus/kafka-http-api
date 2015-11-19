@@ -118,7 +118,7 @@ func (s *Server) sendHandler(w *HTTPResponse, r *http.Request, p *url.Values) {
 
 	kmsg, err := json.Marshal(kafkaMessage{
 		ID:       uuid.NewV4().String(),
-		Accepted: time.Now().Unix(),
+		Accepted: time.Now().UnixNano(),
 		Sender: kafkaSender{
 			IP:      r.RemoteAddr,
 			Project: "",
