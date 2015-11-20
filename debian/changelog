@@ -1,3 +1,9 @@
+kafka-http-api (200) unstable; urgency=low
+
+  * Use nanosecond precision for the field accepted.
+
+ -- Gladkov Alexey <gladkov.alexey@gmail.com>  Thu, 19 Nov 2015 18:21:44 +0300
+
 kafka-http-api (100) unstable; urgency=low
 
   * Initial Release.
