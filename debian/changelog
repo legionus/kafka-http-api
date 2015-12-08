@@ -1,3 +1,9 @@
+kafka-http-api (210) unstable; urgency=low
+
+  * Fix sender IP.
+
+ -- Gladkov Alexey <gladkov.alexey@gmail.com>  Tue, 08 Dec 2015 20:15:31 +0300
+
 kafka-http-api (200) unstable; urgency=low
 
   * Use nanosecond precision for the field accepted.
