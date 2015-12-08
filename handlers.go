@@ -18,6 +18,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"math/rand"
+	"net"
 	"net/http"
 	"net/url"
 	"strings"
@@ -116,11 +117,17 @@ func (s *Server) sendHandler(w *HTTPResponse, r *http.Request, p *url.Values) {
 		return
 	}
 
+	remoteip, _, err := net.SplitHostPort(r.RemoteAddr)
+	if err != nil {
+		s.errorResponse(w, http.StatusInternalServerError, "Unable to get client IP address: %v", err)
+		return
+	}
+
 	kmsg, err := json.Marshal(kafkaMessage{
 		ID:       uuid.NewV4().String(),
 		Accepted: time.Now().UnixNano(),
 		Sender: kafkaSender{
-			IP:      r.RemoteAddr,
+			IP:      remoteip,
 			Project: "",
 			Cluster: "",
 		},
